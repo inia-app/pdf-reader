@@ -14,7 +14,7 @@ app = FastAPI()
 @app.route("/health", methods=["GET"])
 def health():
     """Health check endpoint"""
-    return JSONResponse({"status": "healthy"}, status_code=200)
+    return JSONResponse({"status":"ok"}, status_code=200)
     
 
 @app.post('/upload_file')
