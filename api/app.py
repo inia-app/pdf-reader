@@ -11,10 +11,9 @@ from handlers.ocr import read
 #inicializando classes
 app = FastAPI()
 
-@app.route("/health", methods=["GET"])
-def health():
-    """Health check endpoint"""
-    return JSONResponse({"status":"ok"}, status_code=200)
+@app.get("/health")
+def health_check():
+    return {"status": "healthy"}
     
 
 @app.post('/upload_file')
