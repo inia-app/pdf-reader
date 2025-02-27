@@ -10,6 +10,13 @@ from handlers.ocr import read
 
 #inicializando classes
 app = FastAPI()
+
+@app.route("/health", methods=["GET"])
+def health():
+    """Health check endpoint"""
+    return JSONResponse({"status": "healthy"}, status_code=200)
+    
+
 @app.post('/upload_file')
 async def main(file: UploadFile):
     extension = file.filename.split(".")[-1]
