@@ -28,5 +28,5 @@ async def main(file: UploadFile):
     return JSONResponse(
         {"content": file_}
     )
-if __name__ == '__main__':
-    uvicorn.run("app:app", reload=True)
+# if __name__ == '__main__':
+#     uvicorn.run("app:app", reload=True)
