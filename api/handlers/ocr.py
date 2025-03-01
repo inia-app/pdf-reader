@@ -30,19 +30,16 @@ async def read_url(url):
             if not response.text_content:
                 response = md.convert_url(url, llm_prompt = prompt)
                 if not response.text_content:
-                    raise Exception
+                    raise "OCR FAILED"
+            return response.text_content
         else:
             raise f"Erro na URL "        
-            return response.text_content
     except Exception as e:
-        return f"Erro ao realizar OCR: {e}"    
+        raise f"Erro ao realizar OCR: {e}"    
 
 
-async def main():
-    path = 'files/153.pdf'
-    # print(path[-3:])
-    with open(path, 'rb') as f:
-        c = await read(f)
-        print(c)
+async def main(path):
+    c = await read_url(path)
+    print(c)
 if __name__ == '__main__':
-     asyncio.run(main())
+     asyncio.run(main('https://temp-files-0.sfo3.cdn.digitaloceanspaces.com/b4292e7e-da9a-4fc6-9412-85b95924f869/page_1.pdf'))

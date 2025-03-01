@@ -1,7 +1,5 @@
-from markitdown import MarkItDown
 from fastapi import FastAPI, UploadFile, HTTPException, Request
 from fastapi.responses import JSONResponse
-import uvicorn
 import os
 import sys
 
