@@ -30,7 +30,7 @@ async def main(request: Request):
     try:
         data = await request.json()
         url = data.get("url")
-        extension = os.path.splitext(url)[-1][1:].lower()
+        extension = url.split(".")[-1].lower()
         accepted_forms = {"pdf":read_url, "jpg":read_url, "png":read_url}
         if extension not in accepted_forms.keys():
             raise HTTPException(status_code=400, detail="Invalid File Input")
