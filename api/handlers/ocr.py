@@ -32,7 +32,7 @@ async def read_url(url):
                 response = md.convert_url(url, llm_prompt = prompt)
                 if not response.text_content:
                     raise "OCR FAILED"
-            return response.text_content
+            return markdown(response.text_content)
         else:
             raise f"Erro na URL "        
     except Exception as e:
